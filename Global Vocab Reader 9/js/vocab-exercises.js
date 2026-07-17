@@ -242,10 +242,10 @@ function setupMatching() {
         resultEl.classList.add('show');
         if (correctCount === total) {
             resultEl.className = 'exercise-result show correct';
-            resultEl.innerHTML = `🎉 Tuyệt vời! Đúng ${correctCount}/${total} từ. Em đã thuộc bài rất tốt!`;
+            resultEl.innerHTML = `🎉 Awesome! All ${correctCount}/${total} words correct. You’ve learned the lesson really well!`;
         } else {
             resultEl.className = 'exercise-result show incorrect';
-            resultEl.innerHTML = `✍️ Cố gắng lên! Đúng ${correctCount}/${total} từ. Hãy xem lại các từ nối sai nhé!`;
+            resultEl.innerHTML = `✍️ Keep it up! ${correctCount}/${total} words correct. Take a look at the part you got wrong!`;
         }
         
         // Dispatch result event to potentially update unit done state
@@ -549,7 +549,7 @@ function markUnitCompleteIfAllDone() {
     if (currentUnitData && typeof window.saveProgress === 'function') {
         // Auto-save progress to local storage!
         window.saveProgress(currentUnitData.id, true);
-        console.log(`Unit ${currentUnitData.id} automatically completed!`);
+        console.log(`Bài học ${currentUnitData.id} đã tự động hoàn thành!`);
     }
 }
 
