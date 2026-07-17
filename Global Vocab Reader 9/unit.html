@@ -202,15 +202,15 @@ Start Learning
 </div>
 <div class="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
 <span class="material-symbols-outlined text-primary" data-icon="history_edu">history_edu</span>
-<span class="text-primary font-bold" id="sidebar-progress-text">Tiến trình luyện tập</span>
+<span class="text-primary font-bold" id="sidebar-progress-text">Exercise Progress</span>
 </div>
 </div>
 
 <!-- Tabs Navigation -->
 <div class="flex border-b border-outline-variant/30 mb-6 gap-2 md:gap-4 overflow-x-auto no-scrollbar">
-  <button class="tab-btn active" data-tab="matching">Nối từ</button>
-  <button class="tab-btn" data-tab="fib">Điền ô trống</button>
-  <button class="tab-btn" data-tab="mcq">Trắc nghiệm</button>
+  <button class="tab-btn active" data-tab="matching">Matching</button>
+  <button class="tab-btn" data-tab="fib">Fill Blank</button>
+  <button class="tab-btn" data-tab="mcq">MCQ</button>
 </div>
 
 <!-- A. Matching Tab content -->
@@ -218,9 +218,9 @@ Start Learning
     <div class="bg-surface-container-low rounded-lg p-6 md:p-8 shadow-sm">
         <h3 class="font-headline-sm text-headline-sm mb-6 flex items-center gap-2">
             <span class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">A</span>
-            Nối từ: Ghép các từ vựng với nghĩa chính xác của chúng.
+            Matching: Match the vocabulary word with its correct meaning.
         </h3>
-        <p class="text-on-surface-variant text-sm mb-6">Chọn một từ ở cột bên trái, sau đó chọn nghĩa tương ứng ở cột bên phải để hoàn thành cặp từ.</p>
+        <p class="text-on-surface-variant text-sm mb-6">Choose a word from the left column, then select a matching meaning from the right column to complete the matching pair.</p>
         <div id="matching-game-container" class="relative flex justify-between gap-6 md:gap-12 min-h-[300px] bg-white p-4 rounded-xl border border-outline-variant/30 overflow-hidden">
             <div id="matching-left" class="flex flex-col gap-3 w-5/12 z-10"></div>
             <div id="matching-right" class="flex flex-col gap-3 w-5/12 z-10"></div>
@@ -228,12 +228,12 @@ Start Learning
         </div>
         
         <div class="mt-6 pt-4 border-t border-outline-variant/30">
-            <h4 class="font-bold text-sm mb-3">Các cặp từ đã ghép:</h4>
+            <h4 class="font-bold text-sm mb-3">The paired words :</h4>
             <div id="user-matches-list" class="flex flex-col gap-2 mb-6"></div>
         </div>
 
         <div class="flex flex-wrap justify-between items-center gap-4 mt-6">
-            <button id="check-matching" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:brightness-110 active:scale-95 transition-all shadow-md">Kiểm tra đáp án</button>
+            <button id="check-matching" class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:brightness-110 active:scale-95 transition-all shadow-md">Check the results</button>
             <div id="matching-result" class="exercise-result"></div>
         </div>
     </div>
@@ -244,12 +244,12 @@ Start Learning
     <div class="bg-surface-container-low rounded-lg p-6 md:p-8 shadow-sm">
         <h3 class="font-headline-sm text-headline-sm mb-6 flex items-center gap-2">
             <span class="bg-secondary text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">B</span>
-            Điền từ vào chỗ trống
+            Fill in the Blanks
         </h3>
         <div id="fib-questions-container" class="space-y-4 mb-6"></div>
         
         <div class="flex flex-wrap justify-between items-center gap-4 mt-8">
-            <button id="check-fib" class="bg-secondary text-white px-8 py-3 rounded-full font-bold hover:brightness-110 active:scale-95 transition-all shadow-md">Kiểm tra đáp án</button>
+            <button id="check-fib" class="bg-secondary text-white px-8 py-3 rounded-full font-bold hover:brightness-110 active:scale-95 transition-all shadow-md">Check the results</button>
             <div id="fib-result" class="exercise-result"></div>
         </div>
     </div>
@@ -260,12 +260,12 @@ Start Learning
     <div class="bg-surface-container-low rounded-lg p-6 md:p-8 shadow-sm">
         <h3 class="font-headline-sm text-headline-sm mb-6 flex items-center gap-2">
             <span class="bg-tertiary text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">C</span>
-            Trắc nghiệm nhiều lựa chọn
+            Multiple Choice
         </h3>
         <div id="mcq-questions-container" class="space-y-6 mb-6"></div>
         
         <div class="flex flex-wrap justify-between items-center gap-4 mt-8">
-            <button id="check-mcq" class="bg-tertiary text-white px-8 py-3 rounded-full font-bold hover:brightness-110 active:scale-95 transition-all shadow-md">Kiểm tra đáp án</button>
+            <button id="check-mcq" class="bg-tertiary text-white px-8 py-3 rounded-full font-bold hover:brightness-110 active:scale-95 transition-all shadow-md">Check the results</button>
             <div id="mcq-result" class="exercise-result"></div>
         </div>
     </div>

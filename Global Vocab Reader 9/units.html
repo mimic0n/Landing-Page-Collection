@@ -217,19 +217,19 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                     
-                    <p class="text-on-surface-variant font-body-md mb-6 line-clamp-2">Chủ đề học tập: ${unit.topic}. Tìm hiểu từ vựng quan trọng, đọc văn bản chính và làm các bài tập tự luyện.</p>
+                    <p class="text-on-surface-variant font-body-md mb-6 line-clamp-2">Topic: ${unit.topic}. Learn key vocabulary, read the main passage, and complete interactive practice exercises.</p>
                     
                     <div class="mt-auto">
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-label-sm font-label-sm text-outline">${isCompleted ? 'Đã học (100%)' : 'Chưa bắt đầu'}</span>
-                            <span class="text-label-sm font-label-sm text-primary">Bài học chính</span>
+                            <span class="text-label-sm font-label-sm text-outline">${isCompleted ? 'Completed (100%)' : 'Not Started'}</span>
+                            <span class="text-label-sm font-label-sm text-primary">Core Lesson</span>
                         </div>
                         <div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden mb-6">
                             <div class="h-full bg-gradient-to-r from-gradient-start to-gradient-end transition-all duration-1000" style="width: ${progressPercent}%"></div>
                         </div>
                         
                         <button onclick="window.location.href='unit.html?unit=${unit.id}'" class="w-full py-3 ${isCompleted ? 'bg-primary text-white' : 'bg-surface-container-highest text-on-surface'} hover:bg-primary hover:text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2 group/btn">
-                            ${isCompleted ? 'Học lại bài' : 'Bắt đầu học'}
+                            ${isCompleted ? 'Review Lesson' : 'Start Learning'}
                             <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
                         </button>
                     </div>

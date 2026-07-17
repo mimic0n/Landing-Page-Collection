@@ -75,7 +75,7 @@ function setupMatching() {
     }
     if (userMatchesEl) userMatchesEl.innerHTML = '';
     checkBtn.disabled = false;
-    checkBtn.innerHTML = 'Kiểm tra đáp án';
+    checkBtn.innerHTML = 'Check Answers';
 
     const vocabData = currentUnitData.exercises.matching.pairs;
     
@@ -164,8 +164,8 @@ function setupMatching() {
         row.className = 'match-pair-row';
         row.setAttribute('data-word', word);
         row.innerHTML = `
-            <span><strong>${word}</strong> nối với <em>${meaning}</em></span>
-            <button class="btn-remove-match" title="Xóa nối">&times;</button>
+            <span><strong>${word}</strong> matched with <em>${meaning}</em></span>
+            <button class="btn-remove-match" title="Remove Match">&times;</button>
         `;
 
         row.querySelector('.btn-remove-match').addEventListener('click', () => {
@@ -201,13 +201,13 @@ function setupMatching() {
 
         // Check if all pairs are matched
         if (matchingState.pairs.length < vocabData.length) {
-            alert('Em hãy hoàn thành nối tất cả các từ trước khi kiểm tra nhé!');
+            alert('Please complete all matches before checking!');
             return;
         }
 
         matchingState.checked = true;
         checkBtn.disabled = true;
-        checkBtn.innerHTML = 'Đã kiểm tra ✅';
+        checkBtn.innerHTML = 'Checked ✅';
 
         let correctCount = 0;
         const pairsData = currentUnitData.exercises.matching.pairs;
@@ -229,7 +229,7 @@ function setupMatching() {
                 pair.rightEl.classList.add('incorrect');
                 if (row) {
                     row.classList.add('incorrect');
-                    row.innerHTML += ` <span style="font-size: 12px;">(Đúng là: ${actualPair.meaning})</span>`;
+                    row.innerHTML += ` <span style="font-size: 12px;">(Correct: ${actualPair.meaning})</span>`;
                 }
             }
         });
@@ -322,7 +322,7 @@ function setupFillInTheBlank() {
         resultEl.textContent = '';
     }
     checkBtn.disabled = false;
-    checkBtn.innerHTML = 'Kiểm tra đáp án';
+    checkBtn.innerHTML = 'Check Answers';
 
     const questions = currentUnitData.exercises.fillInTheBlank;
 
@@ -339,7 +339,7 @@ function setupFillInTheBlank() {
 
     // Helper to replace "_______" with HTML input tag
     function replaceBlankWithInput(sentence, index) {
-        return sentence.replace(/_______/g, `<input type="text" class="fib-input" id="fib-input-${index}" placeholder="Điền từ..." autocomplete="off">`);
+        return sentence.replace(/_______/g, `<input type="text" class="fib-input" id="fib-input-${index}" placeholder="Type word..." autocomplete="off">`);
     }
 
     checkBtn.onclick = () => {
@@ -368,19 +368,19 @@ function setupFillInTheBlank() {
                 inputEl.classList.add('correct');
                 if (feedbackEl) {
                     feedbackEl.classList.add('correct');
-                    feedbackEl.innerHTML = '✓ Chính xác!';
+                    feedbackEl.innerHTML = '✓ Correct!';
                 }
             } else {
                 inputEl.classList.add('incorrect');
                 if (feedbackEl) {
                     feedbackEl.classList.add('incorrect');
-                    feedbackEl.innerHTML = `✗ Sai rồi. Đáp án đúng: <strong>${q.answer}</strong>`;
+                    feedbackEl.innerHTML = `✗ Incorrect. Correct answer: <strong>${q.answer}</strong>`;
                 }
             }
         });
 
         if (answeredCount < total) {
-            if (!confirm('Em chưa điền hết các ô trống. Vẫn muốn nộp bài chứ?')) {
+            if (!confirm('You have not filled in all blanks. Still want to submit?')) {
                 return;
             }
         }
@@ -391,16 +391,16 @@ function setupFillInTheBlank() {
             if (inputEl) inputEl.disabled = true;
         });
         checkBtn.disabled = true;
-        checkBtn.innerHTML = 'Đã kiểm tra ✅';
+        checkBtn.innerHTML = 'Checked ✅';
 
         // Show overall result
         resultEl.classList.add('show');
         if (correctCount === total) {
             resultEl.className = 'exercise-result show correct';
-            resultEl.innerHTML = `🎉 Chúc mừng! Đúng ${correctCount}/${total} câu. Em hoàn thành xuất sắc!`;
+            resultEl.innerHTML = `🎉 Congratulations! Correct: ${correctCount}/${total} answers. You did an outstanding job!`;
         } else {
             resultEl.className = 'exercise-result show incorrect';
-            resultEl.innerHTML = `✍️ Cố gắng hơn nhé! Đúng ${correctCount}/${total} câu. Hãy xem lại các đáp án đúng ở trên.`;
+            resultEl.innerHTML = `✍️ Keep practicing! Correct: ${correctCount}/${total} answers. Review the correct answers above.`;
         }
 
         if (correctCount === total) {
@@ -424,7 +424,7 @@ function setupMCQ() {
         resultEl.textContent = '';
     }
     checkBtn.disabled = false;
-    checkBtn.innerHTML = 'Kiểm tra đáp án';
+    checkBtn.innerHTML = 'Check Answers';
 
     const questions = currentUnitData.exercises.multipleChoice;
 
@@ -505,7 +505,7 @@ function setupMCQ() {
         });
 
         if (answeredCount < total) {
-            if (!confirm('Em chưa chọn đáp án cho tất cả các câu hỏi. Vẫn muốn nộp chứ?')) {
+            if (!confirm('You have not answered all questions. Still want to submit?')) {
                 return;
             }
         }
@@ -513,16 +513,16 @@ function setupMCQ() {
         // Disable all radio buttons
         mcqContainer.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = true);
         checkBtn.disabled = true;
-        checkBtn.innerHTML = 'Đã kiểm tra ✅';
+        checkBtn.innerHTML = 'Checked ✅';
 
         // Show overall result
         resultEl.classList.add('show');
         if (correctCount === total) {
             resultEl.className = 'exercise-result show correct';
-            resultEl.innerHTML = `🎉 Giỏi quá! Đúng ${correctCount}/${total} câu. Em đã trả lời đúng hết!`;
+            resultEl.innerHTML = `🎉 Great job! Correct: ${correctCount}/${total} questions. You got them all right!`;
         } else {
             resultEl.className = 'exercise-result show incorrect';
-            resultEl.innerHTML = `✍️ Cố gắng thêm nhé! Đúng ${correctCount}/${total} câu. Xem lại các câu màu xanh lá cây để nhớ bài.`;
+            resultEl.innerHTML = `✍️ Keep trying! Correct: ${correctCount}/${total} questions. Review the green highlights to study.`;
         }
 
         if (correctCount === total) {
@@ -549,7 +549,7 @@ function markUnitCompleteIfAllDone() {
     if (currentUnitData && typeof window.saveProgress === 'function') {
         // Auto-save progress to local storage!
         window.saveProgress(currentUnitData.id, true);
-        console.log(`Bài học ${currentUnitData.id} đã tự động hoàn thành!`);
+        console.log(`Unit ${currentUnitData.id} automatically completed!`);
     }
 }
 

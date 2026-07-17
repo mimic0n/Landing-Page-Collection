@@ -38,7 +38,7 @@ function loadUnitDetails() {
 
     const unitTopicEl = document.getElementById('unit-topic');
     if (unitTopicEl) {
-        unitTopicEl.textContent = `Chủ đề: ${unitData.topic}`;
+        unitTopicEl.textContent = `Topic: ${unitData.topic}`;
     }
 
     // 2. Render Reading Block
@@ -75,7 +75,7 @@ function loadUnitDetails() {
                         </button>
                     </div>
                     <div class="vocab-meaning text-on-surface font-semibold mb-2">${vocab.meaning}</div>
-                    <div class="vocab-example text-on-surface-variant text-sm italic"><strong>Ví dụ:</strong> "${vocab.example}"</div>
+                    <div class="vocab-example text-on-surface-variant text-sm italic"><strong>Example:</strong> "${vocab.example}"</div>
                 </div>
             `;
             vocabGridEl.appendChild(card);
@@ -106,7 +106,7 @@ function speakWord(word) {
         
         window.speechSynthesis.speak(utterance);
     } else {
-        alert('Trình duyệt của em không hỗ trợ tính năng phát âm audio.');
+        alert('Your browser does not support audio pronunciation.');
     }
 }
 
