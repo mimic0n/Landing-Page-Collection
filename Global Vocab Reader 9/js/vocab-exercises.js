@@ -436,8 +436,8 @@ function setupMCQ() {
         let optionsHtml = '';
         q.options.forEach((opt, optIndex) => {
             optionsHtml += `
-                <label class="mcq-option-label" id="label-mcq-${qIndex}-${optIndex}">
-                    <input type="radio" name="mcq-${qIndex}" value="${optIndex}">
+                <label class="mcq-option-label cursor-pointer" id="label-mcq-${qIndex}-${optIndex}">
+                    <input type="radio" name="mcq-${qIndex}" value="${optIndex}" class="w-5 h-5 text-primary border-[#e4bdbe] focus:ring-[#bc0b36]/20 cursor-pointer transition-all">
                     <span>${getOptionPrefix(optIndex)}. ${opt}</span>
                 </label>
             `;
